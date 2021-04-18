@@ -27,7 +27,8 @@ dependencies:
   dio: ^4.0.0
   flutter_easyloading: ^3.0.0
   provider: ^5.0.0
-  video_player: ^2.1.1
+  # video_player: ^2.1.1
+  awsome_video_player: ^1.0.8
 
 dev_dependencies:
   flutter_test:

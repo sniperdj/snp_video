@@ -6,16 +6,16 @@ class SNPNetworkInterceptor extends Interceptor {
     print(
         'REQUEST[${options.method}] => PATH: ${options.path} => DATA: ${options.data}');
 
-    // if (options.data.runtimeType == FormData) {
-    //   print("is formdata ");
-    //   FormData fd = options.data;
-    //   for (int i = 0; i < fd.fields.length; i++) {
-    //     print("map : ${fd.fields[i]}");
-    //   }
-    //   for (int i = 0; i < fd.files.length; i++) {
-    //     print("map2 : ${fd.files[i]}");
-    //   }
-    // }
+    if (options.data.runtimeType == FormData) {
+      print("is formdata ");
+      FormData fd = options.data;
+      for (int i = 0; i < fd.fields.length; i++) {
+        print("map : ${fd.fields[i]}");
+      }
+      for (int i = 0; i < fd.files.length; i++) {
+        print("map2 : ${fd.files[i]}");
+      }
+    }
     return super.onRequest(options, handler);
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:snp_video/ui/pages/login/snp_login_userinfo.dart';
-import 'ui/pages/home/snp_home.dart';
-import 'ui/pages/login/snp_login_page.dart';
+import 'ui/pages/home/snp_home_screen.dart';
+import 'ui/pages/login/snp_login_screen.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 import 'package:snp_video/ui/pages/home/snp_home_router.dart';
@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: userInfo.isLogin // 登录了就去home 否则就去登录页
-            ? SNPHomePage()
-            : SNPLoginPage(),
+            ? SNPHomeScreen()
+            : SNPLoginScreen(),
         builder: EasyLoading.init(),
         routes: SNPHomeRouter.routes,
       ),

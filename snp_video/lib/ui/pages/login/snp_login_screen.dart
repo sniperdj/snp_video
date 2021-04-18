@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:snp_video/core/network/snp_network_manager.dart';
-import 'package:snp_video/ui/pages/home/snp_home.dart';
+import 'package:snp_video/ui/pages/home/snp_home_screen.dart';
 import 'package:snp_video/ui/pages/login/snp_login_api.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'snp_login_userinfo.dart';
 import 'package:provider/provider.dart';
 
-class SNPLoginPage extends StatefulWidget {
+class SNPLoginScreen extends StatefulWidget {
   @override
-  _SNPLoginPageState createState() => _SNPLoginPageState();
+  _SNPLoginScreenState createState() => _SNPLoginScreenState();
 }
 
-class _SNPLoginPageState extends State<SNPLoginPage> {
+class _SNPLoginScreenState extends State<SNPLoginScreen> {
   TextEditingController _usernameC = TextEditingController();
   TextEditingController _passwordC = TextEditingController();
   bool _canLogin = false;
@@ -94,7 +94,7 @@ class _SNPLoginPageState extends State<SNPLoginPage> {
                     final String username = _usernameC.text;
                     final String password = _passwordC.text;
                     login(username, password);
-                    // Navigator.of(context).pushNamed(SNPHomePage.routeName);
+                    // Navigator.of(context).pushNamed(SNPHomeScreen.routeName);
                   })
       ],
     );
@@ -113,7 +113,7 @@ class _SNPLoginPageState extends State<SNPLoginPage> {
         return;
       }
       saveUserInfo(resp.data["data"]);
-      Navigator.of(context).pushNamed(SNPHomePage.routeName);
+      Navigator.of(context).pushNamed(SNPHomeScreen.routeName);
     }).onError((error, stackTrace) {
       // print("resp fail ${error}");
     }).whenComplete(() {

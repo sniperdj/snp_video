@@ -1,3 +1,4 @@
+import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'snp_network_config.dart';
 import 'snp_network_interceptor.dart';
@@ -29,6 +30,15 @@ class SNPNetworkManager {
     //   print("sniper: request statusCode : ${resp.statusCode}");
     //   print("sniper: request data : ${resp.data}");
     // };
+
+    (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+        (client) {
+      client.findProxy = (Uri) {
+        // 用1个开关设置是否开启代理
+        return 'PROXY 192.168.3.7:8888';
+      };
+    };
+
     SNPNetworkInterceptor interceptor = SNPNetworkInterceptor();
     InterceptorsWrapper(
         onRequest: interceptor.onRequest,
